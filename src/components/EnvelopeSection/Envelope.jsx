@@ -159,9 +159,8 @@ function Envelope({ nextStep }) {
     <div
       className="
         relative
-        h-screen
+        min-h-[100dvh]
         w-full
-        overflow-hidden
 
         flex
         items-center
@@ -170,7 +169,11 @@ function Envelope({ nextStep }) {
         px-4
         sm:px-5
 
+        py-6
+
         text-center
+
+        overflow-y-auto
       "
     >
       {/* ======================================
@@ -490,12 +493,13 @@ function Envelope({ nextStep }) {
               relative
 
               w-full
-              h-full
 
               flex
               flex-col
               justify-center
               items-center
+
+              gap-3
 
               z-10
             "
@@ -632,8 +636,6 @@ function Envelope({ nextStep }) {
                 relative
                 z-20
 
-                mt-3
-
                 bg-pink-500
                 hover:bg-pink-600
 
@@ -650,6 +652,8 @@ function Envelope({ nextStep }) {
                 rounded-full
 
                 shadow-lg
+
+                shrink-0
 
                 transition-colors
                 duration-300
