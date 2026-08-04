@@ -7,8 +7,8 @@ import {
 
 import { AnimatePresence, motion } from "framer-motion";
 
-import giftClose from "../../assets/gift-close.png";
-import giftOpen from "../../assets/gift-open.png";
+import giftClose from "../../assets/gift-close.webp";
+import giftOpen from "../../assets/gift-open.webp";
 
 function GiftBox({ nextStep }) {
   const [isOpened, setIsOpened] = useState(false);
@@ -116,7 +116,7 @@ function GiftBox({ nextStep }) {
       if (isOpened) return;
 
       const voice = new Audio(
-        "/music/tap-gift-voice.wav"
+        "/music/tap-gift-voice.mp3"
       );
 
       voice.volume = 0.75;

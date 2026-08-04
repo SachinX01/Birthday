@@ -1,7 +1,7 @@
 import { useEffect, useRef } from "react";
 import { motion } from "framer-motion";
 
-import teddy from "../../assets/birthday-teddy.png";
+import teddy from "../../assets/birthday-teddy.webp";
 
 import Confetti from "./Confetti";
 import Butterflies from "./Butterflies";
@@ -17,7 +17,7 @@ function FinalCelebration() {
 
   useEffect(() => {
     const music = new Audio(
-      "/music/happy-birthday-final.wav"
+      "/music/happy-birthday-final.mp3"
     );
 
     // Keep playing until Replay or page/component closes

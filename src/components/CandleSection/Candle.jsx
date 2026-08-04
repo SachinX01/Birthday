@@ -1,7 +1,7 @@
 import { useState, useEffect, useRef } from "react";
 import { motion } from "framer-motion";
 
-import cake from "../../assets/birthdaycake.png";
+import cake from "../../assets/birthdaycake.webp";
 import PartyPopper from "../Common/PartyPopper";
 
 function Candle({ nextStep }) {

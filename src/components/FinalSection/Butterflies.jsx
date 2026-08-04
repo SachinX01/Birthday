@@ -1,10 +1,10 @@
 import { motion } from "framer-motion";
 
-import butterflyPink from "../../assets/butterfly-pink.png";
-import butterflyGold from "../../assets/butterfly-gold.png";
-import butterflyRed from "../../assets/butterfly-red.png";
-import butterflyBlue from "../../assets/butterfly-blue.png";
-import butterflyPurple from "../../assets/butterfly-purple.png";
+import butterflyPink from "../../assets/butterfly-pink.webp";
+import butterflyGold from "../../assets/butterfly-gold.webp";
+import butterflyRed from "../../assets/butterfly-red.webp";
+import butterflyBlue from "../../assets/butterfly-blue.webp";
+import butterflyPurple from "../../assets/butterfly-purple.webp";
 
 const butterflies = [
   {

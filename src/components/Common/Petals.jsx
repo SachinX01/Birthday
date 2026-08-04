@@ -1,8 +1,8 @@
 import { motion } from "framer-motion";
 
 const petalImages = [
-  "/images/petal/petal1.png",
-  "/images/petal/petal2.png",
+  "/images/petal/petal1.webp",
+  "/images/petal/petal2.webp",
 ];
 
 const PETAL_COUNT = 22;

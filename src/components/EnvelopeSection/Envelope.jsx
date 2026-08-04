@@ -11,8 +11,8 @@ import {
 
 import LoveLetter from "./LoveLetter";
 
-import closeEnvelope from "../../assets/close-envelop.png";
-import openEnvelope from "../../assets/open-envelop.png";
+import closeEnvelope from "../../assets/close-envelop.webp";
+import openEnvelope from "../../assets/open-envelop.webp";
 
 function Envelope({ nextStep }) {
   const [opening, setOpening] = useState(false);

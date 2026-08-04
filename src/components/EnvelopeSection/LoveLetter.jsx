@@ -1,5 +1,5 @@
 import { motion } from "framer-motion";
-import teddy from "../../assets/teddy.png";
+import teddy from "../../assets/teddy.webp";
 
 function LoveLetter() {
   return (

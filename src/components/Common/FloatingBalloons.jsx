@@ -1,10 +1,10 @@
 import { motion } from "framer-motion";
 
-import pink from "../../assets/floating-balloons/pink-balloon.png";
-import black from "../../assets/floating-balloons/black-balloon.png";
-import purple from "../../assets/floating-balloons/purple-balloon.png";
-import gold from "../../assets/floating-balloons/gold-balloon.png";
-import red from "../../assets/floating-balloons/red-balloon.png";
+import pink from "../../assets/floating-balloons/pink-balloon.webp";
+import black from "../../assets/floating-balloons/black-balloon.webp";
+import purple from "../../assets/floating-balloons/purple-balloon.webp";
+import gold from "../../assets/floating-balloons/gold-balloon.webp";
+import red from "../../assets/floating-balloons/red-balloon.webp";
 
 
 const balloonImages = [

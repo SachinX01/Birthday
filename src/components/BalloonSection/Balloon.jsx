@@ -1,9 +1,9 @@
 import { motion } from "framer-motion";
 
-import pinkBalloon from "../../assets/balloons/pink-balloon.png";
-import greenBalloon from "../../assets/balloons/green-balloon.png";
-import goldBalloon from "../../assets/balloons/gold-balloon.png";
-import purpleBalloon from "../../assets/balloons/purple-balloon.png";
+import pinkBalloon from "../../assets/balloons/pink-balloon.webp";
+import greenBalloon from "../../assets/balloons/green-balloon.webp";
+import goldBalloon from "../../assets/balloons/gold-balloon.webp";
+import purpleBalloon from "../../assets/balloons/purple-balloon.webp";
 
 const balloonImages = {
   pink: pinkBalloon,

@@ -1,144 +1,180 @@
 import { motion } from "framer-motion";
-import { useEffect, useState } from "react";
 import birthdayData from "../../data/birthdayData";
 import FloatingHearts from "../../components/Common/FloatingHearts";
 
+import {
+  fade,
+  fadeUp,
+  heartbeat,
+  floatingTitle,
+  buttonAnimation,
+
+} from "../../utils/animationVariants";
+
 function Welcome({ nextStep }) {
-  const [showName, setShowName] = useState(false);
-  const [showLine1, setShowLine1] = useState(false);
-  const [showLine2, setShowLine2] = useState(false);
-  const [showButton, setShowButton] = useState(false);
-
-  useEffect(() => {
-    const timer1 = setTimeout(() => {
-      setShowName(true);
-    }, 1000);
-
-    const timer2 = setTimeout(() => {
-      setShowLine1(true);
-    }, 2000);
-
-    const timer3 = setTimeout(() => {
-      setShowLine2(true);
-    }, 3000);
-
-    const timer4 = setTimeout(() => {
-      setShowButton(true);
-    }, 4500);
-
-    return () => {
-      clearTimeout(timer1);
-      clearTimeout(timer2);
-      clearTimeout(timer3);
-      clearTimeout(timer4);
-    };
-  }, []);
-
   return (
-    <div className="min-h-screen relative overflow-hidden flex justify-center items-center px-6">
-      <FloatingHearts />
-      <div className="text-center">
+    <div className="relative flex items-center justify-center min-h-screen overflow-hidden px-6">
 
-        {/* Heart Animation */}
+      {/* Floating Hearts */}
+      <motion.div
+        variants={fade}
+        initial="hidden"
+        animate="visible"
+        transition={{ delay: 0.5 }}
+      >
+        <FloatingHearts />
+      </motion.div>
 
+      {/* Main Content */}
+      <motion.div
+        variants={fade}
+        initial="hidden"
+        animate="visible"
+        className="relative z-10 text-center"
+      >
+
+        {/* Heart */}
         <motion.h1
-          animate={{
-            scale: [1, 1.2, 1],
-          }}
-          transition={{
-            duration: 1.5,
-            repeat: Infinity,
-          }}
-          className="text-6xl mb-4"
+          variants={heartbeat}
+          initial="hidden"
+          animate="visible"
+          className="text-6xl mb-4 will-change-transform"
         >
           ❤️
         </motion.h1>
 
         {/* Happy Birthday */}
-
         <motion.h1
-          initial={{ opacity: 0 }}
-          animate={{ opacity: 1 }}
-          transition={{ duration: 1 }}
+          variants={floatingTitle}
+          initial="hidden"
+          animate="visible"
           className="text-4xl font-bold text-pink-600 mb-5"
         >
           Happy Birthday
         </motion.h1>
 
         {/* Name */}
-
-        {showName && (
-          // <motion.h2
-          //   initial={{ opacity: 0 }}
-          //   animate={{ opacity: 1 }}
-          //   className="text-2xl font-semibold text-gray-700 mb-5"
-          // >
-          //   {birthdayData.name}
-          // </motion.h2>
-          <motion.h2
-          initial={{ opacity: 0, scale: 0.8 }}
-          animate={{ opacity: 1, scale: 1 }}
-          // transition={{ duration: 0.8 }}
-           className="font-babyday m-2 text-2xl sm:text-3xl text-[#4B1426]"
+        <motion.h2
+          variants={fadeUp}
+          initial="hidden"
+          animate="visible"
+          transition={{
+            delay: 1.2,
+          }}
+          className="font-babyday text-3xl text-[#4B1426] mb-4"
         >
-           {birthdayData.name}
-          </motion.h2>
-        )}
+          {birthdayData.name}
+        </motion.h2>
 
-        {/* Line 1 */}
+        {/* Greeting */}
+        <motion.p
+          variants={fadeUp}
+          initial="hidden"
+          animate="visible"
+          transition={{
+            delay: 2,
+          }}
+          className="text-lg text-gray-500 mb-4"
+        >
+          Today is your special day.
+        </motion.p>
 
-        {showLine1 && (
+        {/* Message */}
+        <motion.div
+          variants={fadeUp}
+          initial="hidden"
+          animate="visible"
+          transition={{
+            delay: 2.8,
+          }}
+          className="mb-8"
+        >
           <motion.p
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
-            className="text-lg text-gray-500 mb-4"
+            transition={{
+              delay: 3,
+              duration: 0.6,
+            }}
+            className="text-lg text-gray-500"
           >
-            Today is your special day.
+            I spent some time creating
           </motion.p>
-        )}
 
-        {/* Line 2 */}
-
-        {showLine2 && (
-          <motion.div
+          <motion.p
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
+            transition={{
+              delay: 3.5,
+              duration: 0.6,
+            }}
+            className="text-lg text-gray-500"
           >
-            <p className="text-lg text-gray-500">
-              I spent some time creating
-            </p>
+            this little surprise just for you.
+          </motion.p>
 
-            <p className="text-lg text-gray-500 mb-2">
-              this little surprise just for you.
-            </p>
-
-            <p className="text-lg text-gray-500 mb-8">
-              I hope it brings a smile to your face.
-            </p>
-          </motion.div>
-        )}
+          <motion.p
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            transition={{
+              delay: 4,
+              duration: 0.6,
+            }}
+            className="text-lg text-gray-500"
+          >
+            I hope it brings a smile to your face.
+          </motion.p>
+        </motion.div>
 
         {/* Button */}
-
-        {showButton && (
-          <motion.button
-            whileHover={{ scale: 1.05 }}
-            whileTap={{ scale: 0.95 }}
-            onClick={nextStep}
-            className="
+        <motion.button
+          variants={buttonAnimation}
+          initial="hidden"
+          animate="visible"
+          whileHover={{
+            scale: 1.05,
+            transition: {
+              duration: 0.2,
+            },
+          }}
+          whileTap={{
+            scale: 0.95,
+          }}
+          onClick={nextStep}
+          className="
             bg-pink-500
             text-white
-            px-5
-            py-1
+            px-6
+            py-2
             rounded-full
             shadow-lg
             text-lg
-            "
-          >
-            Open Your Birthday Surprise
-          </motion.button>
-        )}
-      </div>
+          "
+          style={{
+            animation: "glow 2s ease-in-out infinite",
+          }}
+        >
+          Open Your Birthday Surprise
+        </motion.button>
+
+      </motion.div>
+
+      <style>{`
+        @keyframes glow {
+          0% {
+            box-shadow: 0 0 0px rgba(236,72,153,.25);
+          }
+
+          50% {
+            box-shadow: 0 0 20px rgba(236,72,153,.7);
+          }
+
+          100% {
+            box-shadow: 0 0 0px rgba(236,72,153,.25);
+          }
+        }
+      `}</style>
+
     </div>
   );
 }
