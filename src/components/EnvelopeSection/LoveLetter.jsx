@@ -1,7 +1,26 @@
+import { useEffect, useState } from "react";
 import { motion } from "framer-motion";
 import teddy from "../../assets/teddy.webp";
+import birthdayData from "../../data/birthdayData";
 
 function LoveLetter() {
+  const letterText = birthdayData.letterBody.join("\n\n");
+  const [typedText, setTypedText] = useState("");
+
+  useEffect(() => {
+    let index = 0;
+    const typingInterval = setInterval(() => {
+      index += 1;
+      setTypedText(letterText.slice(0, index));
+
+      if (index >= letterText.length) {
+        clearInterval(typingInterval);
+      }
+    }, 28);
+
+    return () => clearInterval(typingInterval);
+  }, [letterText]);
+
   return (
     <motion.div
       initial={{
@@ -112,36 +131,25 @@ function LoveLetter() {
         "
       >
         <p>
-          Dear Baby,
+          {birthdayData.letterGreeting}
           <br />
           <br />
 
-          Happy Birthday to the most special person in my life.
+          {typedText.split("\n").map((line, index) => (
+            <span key={`${line}-${index}`}>
+              {line}
+              {index < typedText.split("\n").length - 1 && <><br /><br /></>}
+            </span>
+          ))}
+          {typedText.length < letterText.length && <span className="animate-pulse">▌</span>}
           <br />
           <br />
 
-          Thank you for making my life more beautiful every single day.
+          With love,
           <br />
           <br />
 
-          You deserve all the happiness, love and success in this world.
-          <br />
-          <br />
-
-          I hope all your dreams come true and your beautiful smile always
-          stays the same.
-          <br />
-          <br />
-
-          Thank you for being yourself.
-          <br />
-          <br />
-
-          Lots of Love,
-          <br />
-          <br />
-
-           ❤️
+          {birthdayData.senderName} ❤️
         </p>
       </div>
 

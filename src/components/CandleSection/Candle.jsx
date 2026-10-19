@@ -2,6 +2,7 @@ import { useState, useEffect, useRef } from "react";
 import { motion } from "framer-motion";
 
 import cake from "../../assets/birthdaycake.webp";
+import birthdayData from "../../data/birthdayData";
 import PartyPopper from "../Common/PartyPopper";
 
 function Candle({ nextStep }) {
@@ -375,7 +376,7 @@ function Candle({ nextStep }) {
                 mt-5
               "
             >
-              Happy Birthday Baby 🎉
+              {birthdayData.candleMessage}
             </motion.h2>
 
             {/* Wish Message */}

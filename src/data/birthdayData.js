@@ -1,35 +1,45 @@
 const birthdayData = {
-  name:"Dreamgirl ✨",
+  recipientName: "Yash",
+  senderName: "Ashu",
+  name: "Yash ✨",
+  welcomeTitle: "Happy Birthday",
+  welcomeGreeting: "Today is your special day.",
+  welcomeButton: "Open Your Birthday Surprise",
+  candleMessage: "Happy Birthday Yash 🎉",
+  letterGreeting: "Dear Yash,",
+  letterBody: [
+    "Happy Birthday to the man who makes every moment feel more meaningful.",
+    "Your warmth, strength and beautiful heart make you truly special.",
+    "I hope this year brings you the happiness, success and peace you deserve.",
+    "Thank you for being someone I can always admire and cherish.",
+  ],
+  finalTitle: "Happy Birthday, Yash! 🎂❤️",
+  finalMessage: "With all my love, Ashu",
   moments: [
     {
       icon: "❤️",
-      title: "The Beginning",
-      message:
-        "I still smile when I think about how all of this started",
+      title: "The Way You Are",
+      message: "Your kindness and confidence make you unforgettable.",
     },
     {
       icon: "😊",
       title: "Your Smile",
-      message:
-        "Your smile has a beautiful way of making even my worst days feel better.",
+      message: "Your smile has a way of making every room feel warmer.",
     },
     {
       icon: "🌙",
-      title: "Late Night Talks",
-      message:
-        "Some conversations are so special that they stay in our hearts forever.",
+      title: "Our Conversations",
+      message: "The little conversations we share always stay close to my heart.",
     },
     {
-      icon: "🌸",
-      title: "Always Smile",
-      message:
-        "No matter what happens, I hope you always have a reason to smile.",
+      icon: "⭐",
+      title: "Your Heart",
+      message: "You bring patience, warmth and a quiet kind of magic to life.",
     },
     {
       icon: "🥰",
-      title: "Thank You",
-      message:
-        "Thank you for being part of my life. I'm truly grateful for every moment we've shared.",
+      title: "A Birthday Wish",
+      message: "May this year give you countless reasons to smile and feel loved.",
     },
   ]
 };

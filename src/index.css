@@ -15,12 +15,11 @@ body,
 }
 
 body {
-  background: linear-gradient(
-    to bottom,
-    #fff5f7,
-    #ffe4ec
-  );
+  background:
+    radial-gradient(circle at 50% -10%, rgba(181, 137, 74, 0.2), transparent 38%),
+    linear-gradient(145deg, #0d1726 0%, #18283b 52%, #271827 100%);
 
+  color: #f8f0e3;
   font-family: sans-serif;
   box-sizing: border-box;
 }
@@ -40,8 +39,36 @@ button {
   font-family: "Great Vibes", cursive;
 }
 ::selection {
-  background-color: #ffb6c1;
+  background-color: #b58b52;
+  color: #111827;
 }
+
+/* Midnight Romance palette overrides shared by the existing components. */
+.bg-pink-500 {
+  background: linear-gradient(135deg, #a13d59, #72243e) !important;
+  border: 1px solid rgba(214, 173, 104, 0.55) !important;
+  box-shadow: 0 8px 22px rgba(114, 36, 62, 0.35) !important;
+}
+.bg-pink-600 { background-color: #74243d !important; }
+.hover\:bg-pink-600:hover { background-color: #a13d59 !important; }
+.text-pink-600 { color: #d6ad68 !important; }
+.text-pink-500 { color: #c98d91 !important; }
+.text-pink-400 { color: #d6ad68 !important; }
+.border-pink-100 { border-color: rgba(214, 173, 104, 0.28) !important; }
+.border-pink-300 { border-color: rgba(214, 173, 104, 0.6) !important; }
+.shadow-pink-200,
+.shadow-pink-300 { --tw-shadow-color: rgba(181, 137, 74, 0.28) !important; }
+.bg-orange-200 { background-color: #f3e5cc !important; }
+.from-pink-100 { --tw-gradient-from: #f4e6d0 var(--tw-gradient-from-position) !important; }
+.via-pink-50 { --tw-gradient-via: #fffaf2 var(--tw-gradient-via-position) !important; }
+.to-pink-50,
+.to-rose-100 { --tw-gradient-to: #ead6c7 var(--tw-gradient-to-position) !important; }
+.via-white { --tw-gradient-via: #1d3046 var(--tw-gradient-via-position) !important; }
+.bg-white\/80 { background-color: rgba(22, 36, 56, 0.9) !important; }
+.border-white\/70 { border-color: rgba(181, 139, 82, 0.4) !important; }
+.text-gray-500,
+.text-gray-600,
+.text-gray-700 { color: #cbd0d7 !important; }
 
 /* Custom Scrollbar */
 

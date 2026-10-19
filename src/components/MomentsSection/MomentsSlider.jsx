@@ -9,31 +9,28 @@ function MomentsSlider({ nextStep }) {
 
   const moments = birthdayData.moments;
 
-  // Card 5 = index 4
   const showContinue =
-    currentIndex === 4 && currentIndex === moments.length - 1;
+    currentIndex === moments.length - 1;
 
   // ==========================================
   // NEXT CARD
-  // Swipe RIGHT
   // ==========================================
 
   const nextCard = () => {
     if (currentIndex >= moments.length - 1) return;
 
-    setDirection(1);
+    setDirection(-1);
     setCurrentIndex((prev) => prev + 1);
   };
 
   // ==========================================
   // PREVIOUS CARD
-  // Swipe LEFT
   // ==========================================
 
   const previousCard = () => {
     if (currentIndex <= 0) return;
 
-    setDirection(-1);
+    setDirection(1);
     setCurrentIndex((prev) => prev - 1);
   };
 
@@ -45,19 +42,19 @@ function MomentsSlider({ nextStep }) {
     const swipeDistance = 70;
     const swipeVelocity = 400;
 
-    // Swipe RIGHT -> Next
+    // Swipe LEFT -> Next
     if (
-      info.offset.x > swipeDistance ||
-      info.velocity.x > swipeVelocity
+      info.offset.x < -swipeDistance ||
+      info.velocity.x < -swipeVelocity
     ) {
       nextCard();
       return;
     }
 
-    // Swipe LEFT -> Previous
+    // Swipe RIGHT -> Previous
     if (
-      info.offset.x < -swipeDistance ||
-      info.velocity.x < -swipeVelocity
+      info.offset.x > swipeDistance ||
+      info.velocity.x > swipeVelocity
     ) {
       previousCard();
     }
@@ -140,7 +137,7 @@ function MomentsSlider({ nextStep }) {
           sm:mb-5
         "
       >
-        Some Sweet Moments ❤️
+        Moments Worth Keeping ✦
       </motion.h1>
 
       {/* ======================================
@@ -163,7 +160,7 @@ function MomentsSlider({ nextStep }) {
           delay: 0.15,
         }}
         className="
-          bg-white/80
+          bg-[#162438]/90
           backdrop-blur-sm
 
           rounded-[28px]
@@ -180,7 +177,7 @@ function MomentsSlider({ nextStep }) {
           items-center
 
           border
-          border-white/70
+          border-[#b58b52]/40
         "
       >
         {/* ====================================
@@ -236,9 +233,9 @@ function MomentsSlider({ nextStep }) {
                 rounded-3xl
 
                 bg-gradient-to-br
-                from-pink-100
-                via-white
-                to-pink-50
+                from-[#243a52]
+                via-[#17263a]
+                to-[#281f30]
 
                 px-5
                 sm:px-6
@@ -256,7 +253,7 @@ function MomentsSlider({ nextStep }) {
                 shadow-inner
 
                 border
-                border-pink-100
+                border-[#b58b52]/35
               "
             >
               {/* ==================================

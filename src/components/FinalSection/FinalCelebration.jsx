@@ -2,9 +2,10 @@ import { useEffect, useRef } from "react";
 import { motion } from "framer-motion";
 
 import teddy from "../../assets/birthday-teddy.webp";
+import birthdayData from "../../data/birthdayData";
 
 import Confetti from "./Confetti";
-import Butterflies from "./Butterflies";
+import Starfield from "./Starfield";
 import ReplayButton from "../Common/ReplayButton";
 
 function FinalCelebration() {
@@ -122,9 +123,9 @@ function FinalCelebration() {
 
       <Confetti />
 
-      {/* Butterflies */}
+      {/* Starfield */}
 
-      <Butterflies />
+      <Starfield />
 
       {/* Main Content */}
 
@@ -288,37 +289,6 @@ function FinalCelebration() {
             HEADING
         ==================================== */}
 
-        {/* <motion.h1
-          initial={{
-            opacity: 0,
-            y: 15,
-            scale: 0.9,
-          }}
-          animate={{
-            opacity: 1,
-            y: 0,
-            scale: 1,
-          }}
-          transition={{
-            duration: 0.6,
-            delay: 1.2,
-          }}
-          className="
-            text-3xl
-            sm:text-4xl
-            md:text-5xl
-
-            font-romantic
-
-            text-pink-600
-
-            leading-tight
-
-            mb-2
-          "
-        >
-          LOTS OF LOVE FOR YOU ❤️
-        </motion.h1> */}
         <motion.h1
           initial={{
             opacity: 0,
@@ -339,20 +309,20 @@ function FinalCelebration() {
             sm:text-4xl
             md:text-5xl
 
-            font-romantic
+            font-serif
             font-semibold
 
             text-pink-600
 
-            tracking-wide
-            leading-relaxed
+            tracking-[0.08em]
+            leading-tight
 
             mb-4
 
             text-center
           "
         >
-          LOTS OF LOVE FOR YOU ❤️
+          LOTS OF LOVE FOR YOU ✦
         </motion.h1>
         {/* ====================================
             HAPPY BIRTHDAY
@@ -384,7 +354,7 @@ function FinalCelebration() {
             mb-1
           "
         >
-          Happy Birthday Baby! 🎂❤️
+          {birthdayData.finalTitle}
         </motion.p>
 
         {/* ====================================
@@ -415,9 +385,8 @@ function FinalCelebration() {
             sm:leading-7
           "
         >
-          May your life always be filled
-          <br />
-          with love, happiness and beautiful memories.
+          May your life always be filled with love, happiness and beautiful
+          memories.
         </motion.p>
 
         {/* ====================================
@@ -451,7 +420,7 @@ function FinalCelebration() {
             sm:leading-7
           "
         >
-          I hope all your dreams come true. ❤️
+          {birthdayData.finalMessage}
         </motion.p>
 
         {/* ====================================

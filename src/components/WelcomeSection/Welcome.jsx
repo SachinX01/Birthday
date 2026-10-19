@@ -50,7 +50,7 @@ function Welcome({ nextStep }) {
           animate="visible"
           className="text-4xl font-bold text-pink-600 mb-5"
         >
-          Happy Birthday
+          {birthdayData.welcomeTitle}
         </motion.h1>
 
         {/* Name */}
@@ -61,7 +61,7 @@ function Welcome({ nextStep }) {
           transition={{
             delay: 1.2,
           }}
-          className="font-babyday text-3xl text-[#4B1426] mb-4"
+          className="font-babyday text-3xl text-[#d6ad68] mb-4"
         >
           {birthdayData.name}
         </motion.h2>
@@ -76,10 +76,10 @@ function Welcome({ nextStep }) {
           }}
           className="text-lg text-gray-500 mb-4"
         >
-          Today is your special day.
+          {birthdayData.welcomeGreeting}
         </motion.p>
 
-        {/* Message */}
+        {/* Personal message */}
         <motion.div
           variants={fadeUp}
           initial="hidden"
@@ -92,37 +92,10 @@ function Welcome({ nextStep }) {
           <motion.p
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
-            transition={{
-              delay: 3,
-              duration: 0.6,
-            }}
+            transition={{ delay: 3, duration: 0.6 }}
             className="text-lg text-gray-500"
           >
-            I spent some time creating
-          </motion.p>
-
-          <motion.p
-            initial={{ opacity: 0 }}
-            animate={{ opacity: 1 }}
-            transition={{
-              delay: 3.5,
-              duration: 0.6,
-            }}
-            className="text-lg text-gray-500"
-          >
-            this little surprise just for you.
-          </motion.p>
-
-          <motion.p
-            initial={{ opacity: 0 }}
-            animate={{ opacity: 1 }}
-            transition={{
-              delay: 4,
-              duration: 0.6,
-            }}
-            className="text-lg text-gray-500"
-          >
-            I hope it brings a smile to your face.
+            A little birthday moment, made just for you.
           </motion.p>
         </motion.div>
 
@@ -154,7 +127,7 @@ function Welcome({ nextStep }) {
             animation: "glow 2s ease-in-out infinite",
           }}
         >
-          Open Your Birthday Surprise
+          {birthdayData.welcomeButton}
         </motion.button>
 
       </motion.div>

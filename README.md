@@ -1,6 +1,6 @@
-# 🎂 A Little Birthday Surprise 💖
+# 🎂 For Yash, With Love
 
-A fun and interactive birthday surprise website built with **React**, **Tailwind CSS**, and **Framer Motion**.
+A romantic, interactive birthday surprise for Yash, made with love by Ashu and built with **React**, **Tailwind CSS**, and **Framer Motion**.
 
 The website takes the user through a small birthday journey with animations, interactive moments, photos, a love letter, and a final celebration.
 
@@ -11,6 +11,7 @@ https://a-little-bdaysurprise.netlify.app/
 
 ## ✨ Features
 
+* 🌙 Midnight Romance visual theme with navy, burgundy, and champagne-gold accents
 * 💕 Animated welcome screen
 * ❤️ Floating heart animations
 * 🎈 Interactive balloon popping
@@ -20,7 +21,7 @@ https://a-little-bdaysurprise.netlify.app/
 * 📸 Swipeable memory/photo cards
 * 💌 Interactive envelope and birthday letter
 * 🎁 Animated gift box surprise
-* 🦋 Flying butterfly animations
+* 🦋 Decorative flying animations
 * 🎊 Final celebration with hearts and confetti
 * 📱 Responsive design for mobile, tablet, laptop, and desktop
 * ✨ Smooth transitions and animations throughout the experience
@@ -40,7 +41,7 @@ This project was created as an interactive birthday experience instead of a trad
 
 Each section reveals something new, from balloons and candles to memories, flowers, a personal letter, and a final birthday celebration.
 
-The main focus was creating an experience that feels playful, personal, and visually engaging while keeping the application responsive across different screen sizes.
+The main focus was creating an experience that feels romantic, personal, and visually engaging without relying on a strongly feminine color palette. The application remains responsive across different screen sizes.
 
 ## 📂 Project Structure
 
@@ -134,21 +135,6 @@ The website is designed to work across:
 * Desktop screens
 
 Responsive layouts and sizing are used to keep the birthday experience consistent across different screen sizes.
-
-## 💡 What I Worked On
-
-While building this project, I worked with:
-
-* React component architecture
-* State-based interactions
-* Framer Motion animations
-* Drag and swipe gestures
-* Timed transitions
-* Sound effects
-* Image-based UI composition
-* Responsive layouts
-* Custom CSS animations
-* Deployment with Netlify
 
 ## ❤️ Made With Love
 
