@@ -90,6 +90,7 @@ function MomentsSlider({ nextStep }) {
   return (
     <div
       className="
+        moments-slider
         relative
         h-screen
         w-full
@@ -133,6 +134,7 @@ function MomentsSlider({ nextStep }) {
           duration: 0.7,
         }}
         className="
+          moments-slider-title
           text-4xl
           sm:text-5xl
           md:text-6xl
@@ -169,6 +171,7 @@ function MomentsSlider({ nextStep }) {
           delay: 0.15,
         }}
         className="
+          moments-slider-shell
           bg-[#162438]/90
           backdrop-blur-sm
 
@@ -234,6 +237,7 @@ function MomentsSlider({ nextStep }) {
               }}
 
               className="
+                moments-slider-card
                 w-full
 
                 min-h-[450px]
@@ -273,6 +277,7 @@ function MomentsSlider({ nextStep }) {
                 animate={{ opacity: 1, scale: 1 }}
                 transition={{ duration: 0.5 }}
                 className="
+                  moments-slider-image
                   mb-4
                   h-52
                   w-full
@@ -318,6 +323,7 @@ function MomentsSlider({ nextStep }) {
                   },
                 }}
                 className="
+                  moments-slider-icon
                   text-3xl
                   sm:text-4xl
                   mb-3
@@ -345,6 +351,7 @@ function MomentsSlider({ nextStep }) {
                   delay: 0.1,
                 }}
                 className="
+                  moments-slider-card-title
                   text-2xl
                   sm:text-3xl
 
@@ -376,6 +383,7 @@ function MomentsSlider({ nextStep }) {
                   delay: 0.2,
                 }}
                 className="
+                  moments-slider-divider
                   h-px
                   bg-pink-300
                   mb-4
@@ -401,6 +409,7 @@ function MomentsSlider({ nextStep }) {
                   delay: 0.2,
                 }}
                 className="
+                  moments-slider-message
                   text-gray-600
 
                   text-sm

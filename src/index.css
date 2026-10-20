@@ -106,3 +106,50 @@ button {
   font-family: "Noto Sans Devanagari", "Nirmala UI", sans-serif;
   font-weight: 500;
 }
+
+@media (max-width: 700px) and (max-height: 700px) {
+  .moments-slider {
+    padding-top: 0.5rem !important;
+    padding-bottom: 1rem !important;
+    transform: none !important;
+  }
+
+  .moments-slider-title {
+    font-size: 1.75rem !important;
+    line-height: 1.1 !important;
+    margin-bottom: 0.5rem !important;
+  }
+
+  .moments-slider-shell {
+    padding: 0.5rem !important;
+  }
+
+  .moments-slider-card {
+    min-height: 0 !important;
+    padding: 0.75rem !important;
+  }
+
+  .moments-slider-image {
+    height: 9.5rem !important;
+    margin-bottom: 0.5rem !important;
+  }
+
+  .moments-slider-icon {
+    font-size: 1.75rem !important;
+    line-height: 1 !important;
+    margin-bottom: 0.35rem !important;
+  }
+
+  .moments-slider-card-title {
+    font-size: 1.45rem !important;
+    margin-bottom: 0.5rem !important;
+  }
+
+  .moments-slider-divider {
+    margin-bottom: 0.5rem !important;
+  }
+
+  .moments-slider-message {
+    line-height: 1.25rem !important;
+  }
+}
