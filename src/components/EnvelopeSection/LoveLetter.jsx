@@ -19,7 +19,7 @@ function LoveLetter() {
       if (index >= letterText.length) {
         clearInterval(typingInterval);
       }
-    }, 28);
+    }, 45);
 
     return () => clearInterval(typingInterval);
   }, [letterText]);
