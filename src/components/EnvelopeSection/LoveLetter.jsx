@@ -7,6 +7,7 @@ function LoveLetter() {
   const letterText = birthdayData.letterBody.join("\n\n");
   const [typedText, setTypedText] = useState("");
   const typedParagraphs = typedText.split("\n\n");
+  const isTyping = typedText.length < letterText.length;
 
   useEffect(() => {
     let index = 0;
@@ -148,15 +149,17 @@ function LoveLetter() {
               {paragraph}
             </span>
           ))}
-          {typedText.length < letterText.length && <span className="animate-pulse">▌</span>}
-          <br />
-          <br />
-
-          With love,
-          <br />
-          <br />
-
-          {birthdayData.senderName} ❤️
+          {isTyping && <span className="animate-pulse">|</span>}
+          {!isTyping && (
+            <>
+              <br />
+              <br />
+              With love,
+              <br />
+              <br />
+              {birthdayData.senderName} ❤️
+            </>
+          )}
         </p>
       </div>
 
