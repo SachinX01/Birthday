@@ -6,6 +6,7 @@ import birthdayData from "../../data/birthdayData";
 function LoveLetter() {
   const letterText = birthdayData.letterBody.join("\n\n");
   const [typedText, setTypedText] = useState("");
+  const typedParagraphs = typedText.split("\n\n");
 
   useEffect(() => {
     let index = 0;
@@ -123,8 +124,8 @@ function LoveLetter() {
           sm:text-lg
           md:text-xl
 
-          leading-7
-          md:leading-8
+          leading-8
+          md:leading-9
 
           text-center
           font-cursive
@@ -135,10 +136,16 @@ function LoveLetter() {
           <br />
           <br />
 
-          {typedText.split("\n").map((line, index) => (
-            <span key={`${line}-${index}`}>
-              {line}
-              {index < typedText.split("\n").length - 1 && <><br /><br /></>}
+          {typedParagraphs.map((paragraph, index) => (
+            <span
+              key={`${paragraph}-${index}`}
+              className={`block whitespace-pre-line mb-6 last:mb-0 ${
+                /[\u0900-\u097F]/.test(paragraph)
+                  ? "font-marathi text-[0.96em] leading-9"
+                  : ""
+              }`}
+            >
+              {paragraph}
             </span>
           ))}
           {typedText.length < letterText.length && <span className="animate-pulse">▌</span>}

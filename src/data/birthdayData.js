@@ -16,9 +16,9 @@ const birthdayData = {
   letterBody: [
     "Happy Birthday to the man who makes every moment feel more meaningful.",
     "Your warmth, strength and beautiful heart make you truly special.",
+    "यश तुला तुझ्या २५ व्या वाढदिवसाच्या खुप खुप शुभेच्छा. ❤️🎂\nतुझ्या सगळ्या इच्छा पूर्ण होवो 😌\nआणि तू खूप पैसे कमवावे सो मी ते मनसोक्त उडवेन 🥲😂\nमी आहेच नेहमी सोबत तुझ्या आणि असेन 🤜🏻🤛🏻\nHappy Birthday Future Husband ❤️🧿",
     "I hope this year brings you the happiness, success and peace you deserve.",
     "Thank you for being someone I can always admire and cherish.",
-    "यश तुला तुझ्या २५ व्या वाढदिवसाच्या खुप खुप शुभेच्छा. ❤️🎂 तुझ्या सगळ्या इच्छा पूर्ण होवो 😌 आणि तू खूप पैसे कमवावे सो मी ते मनसोक्त उडवेन 🥲😂 मी आहेच नेहमी सोबत तुझ्या आणि असेन 🤜🏻🤛🏻 Happy Birthday Future Husband ❤️🧿",
   ],
   finalTitle: "Happy Birthday, Yash! 🎂❤️",
   finalMessage: "With all my love, Ashu",

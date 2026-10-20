@@ -94,6 +94,14 @@ function MomentsSlider({ nextStep }) {
         h-screen
         w-full
         overflow-hidden
+        max-[700px]:h-auto
+        max-[700px]:min-h-screen
+        max-[700px]:overflow-y-auto
+        max-[700px]:justify-start
+        max-[700px]:translate-y-0
+        max-[700px]:pt-4
+        max-[700px]:pb-8
+        overscroll-contain
 
         flex
         flex-col
