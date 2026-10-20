@@ -1,4 +1,4 @@
-import { useEffect, useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import { motion } from "framer-motion";
 import teddy from "../../assets/teddy.webp";
 import birthdayData from "../../data/birthdayData";
@@ -8,6 +8,7 @@ function LoveLetter() {
   const [typedText, setTypedText] = useState("");
   const typedParagraphs = typedText.split("\n\n");
   const isTyping = typedText.length < letterText.length;
+  const letterContentRef = useRef(null);
 
   useEffect(() => {
     let index = 0;
@@ -22,6 +23,17 @@ function LoveLetter() {
 
     return () => clearInterval(typingInterval);
   }, [letterText]);
+
+  useEffect(() => {
+    const letterContent = letterContentRef.current;
+
+    if (letterContent && isTyping) {
+      letterContent.scrollTo({
+        top: letterContent.scrollHeight,
+        behavior: "smooth",
+      });
+    }
+  }, [typedText, isTyping]);
 
   return (
     <motion.div
@@ -104,6 +116,7 @@ function LoveLetter() {
       ====================================== */}
 
       <div
+        ref={letterContentRef}
         className="
           custom-scrollbar
 
@@ -147,17 +160,24 @@ function LoveLetter() {
               }`}
             >
               {paragraph}
+              {isTyping && index === typedParagraphs.length - 1 && (
+                <span
+                  aria-hidden="true"
+                  className="ml-1 inline-block animate-pulse"
+                >
+                  ▌
+                </span>
+              )}
             </span>
           ))}
-          {isTyping && <span className="animate-pulse">|</span>}
           {!isTyping && (
             <>
-              <br />
-              <br />
-              With love,
-              <br />
-              <br />
-              {birthdayData.senderName} ❤️
+              <span className="mt-6 block">
+                With love,
+                <br />
+                <br />
+                {birthdayData.senderName} ❤️
+              </span>
             </>
           )}
         </p>
