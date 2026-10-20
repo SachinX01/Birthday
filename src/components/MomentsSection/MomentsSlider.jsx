@@ -103,6 +103,7 @@ function MomentsSlider({ nextStep }) {
         px-4
         sm:px-5
         py-4
+        -translate-y-[2vh]
 
         text-center
       "
@@ -227,8 +228,8 @@ function MomentsSlider({ nextStep }) {
               className="
                 w-full
 
-                min-h-[290px]
-                sm:min-h-[320px]
+                min-h-[450px]
+                sm:min-h-[510px]
 
                 rounded-3xl
 
@@ -241,6 +242,7 @@ function MomentsSlider({ nextStep }) {
                 sm:px-6
 
                 py-5
+                sm:py-5
 
                 flex
                 flex-col
@@ -256,6 +258,28 @@ function MomentsSlider({ nextStep }) {
                 border-[#b58b52]/35
               "
             >
+              <motion.img
+                src={moments[currentIndex].image}
+                alt={moments[currentIndex].imageAlt}
+                initial={{ opacity: 0, scale: 1.04 }}
+                animate={{ opacity: 1, scale: 1 }}
+                transition={{ duration: 0.5 }}
+                className="
+                  mb-4
+                  h-52
+                  w-full
+                  rounded-2xl
+                  object-cover
+                  shadow-lg
+                  ring-1
+                  ring-[#d6ad68]/40
+                  sm:mb-4
+                  sm:h-60
+                "
+                style={{ objectPosition: moments[currentIndex].imagePosition }}
+                draggable="false"
+              />
+
               {/* ==================================
                   ICON
               ================================== */}
@@ -286,9 +310,10 @@ function MomentsSlider({ nextStep }) {
                   },
                 }}
                 className="
-                  text-5xl
-                  sm:text-6xl
+                  text-3xl
+                  sm:text-4xl
                   mb-3
+                  sm:mb-3
                 "
               >
                 {moments[currentIndex].icon}
@@ -312,8 +337,8 @@ function MomentsSlider({ nextStep }) {
                   delay: 0.1,
                 }}
                 className="
-                  text-3xl
-                  sm:text-4xl
+                  text-2xl
+                  sm:text-3xl
 
                   font-romantic
                   text-pink-600
@@ -321,6 +346,7 @@ function MomentsSlider({ nextStep }) {
                   leading-tight
 
                   mb-3
+                  sm:mb-3
                 "
               >
                 {moments[currentIndex].title}
@@ -345,6 +371,7 @@ function MomentsSlider({ nextStep }) {
                   h-px
                   bg-pink-300
                   mb-4
+                  sm:mb-4
                 "
               />
 
@@ -376,7 +403,7 @@ function MomentsSlider({ nextStep }) {
 
                   text-center
 
-                  leading-6
+                  leading-5
                   sm:leading-7
 
                   max-w-[260px]
