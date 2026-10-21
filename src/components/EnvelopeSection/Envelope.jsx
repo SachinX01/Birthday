@@ -16,6 +16,7 @@ import openEnvelope from "../../assets/open-envelop.webp";
 
 function Envelope({ nextStep }) {
   const [quizAnswer, setQuizAnswer] = useState("");
+  const [showQuiz, setShowQuiz] = useState(false);
   const [quizPassed, setQuizPassed] = useState(false);
   const [quizError, setQuizError] = useState("");
   const [opening, setOpening] = useState(false);
@@ -37,6 +38,7 @@ function Envelope({ nextStep }) {
 
     if (normalizedAnswer === "miniseashore") {
       setQuizPassed(true);
+      setShowQuiz(false);
       setQuizError("");
       return;
     }
@@ -78,6 +80,11 @@ function Envelope({ nextStep }) {
   const handleEnvelopeClick = () => {
     // Prevent multiple clicks
     if (opening) return;
+
+    if (!quizPassed) {
+      setShowQuiz(true);
+      return;
+    }
 
     setOpening(true);
 
@@ -199,15 +206,19 @@ function Envelope({ nextStep }) {
           BEFORE LETTER OPENS
       ====================================== */}
 
-      {!showLetter && !quizPassed && (
+      {!showLetter && showQuiz && !quizPassed && (
         <motion.form
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.7 }}
           onSubmit={checkQuizAnswer}
           className="
-            relative
-            z-10
+            absolute
+            z-20
+            left-1/2
+            top-1/2
+            -translate-x-1/2
+            -translate-y-1/2
             w-full
             max-w-md
             rounded-3xl
@@ -269,10 +280,25 @@ function Envelope({ nextStep }) {
           >
             Unlock the Letter 💌
           </button>
+          <button
+            type="button"
+            onClick={() => setShowQuiz(false)}
+            className="
+              mt-3
+              block
+              w-full
+              text-sm
+              text-gray-500
+              underline
+              underline-offset-4
+            "
+          >
+            Maybe later
+          </button>
         </motion.form>
       )}
 
-      {!showLetter && quizPassed && (
+      {!showLetter && (
         <div
           className="
             relative
