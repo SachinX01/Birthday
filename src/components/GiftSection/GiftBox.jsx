@@ -21,10 +21,12 @@ function GiftBox({ nextStep }) {
 
   const musicRef = useRef(null);
   const voiceRef = useRef(null);
+  const videoRef = useRef(null);
 
   const voiceTimerRef = useRef(null);
   const nextTimerRef = useRef(null);
   const fadeIntervalRef = useRef(null);
+  const videoTimerRef = useRef(null);
 
   const heartSoundTimersRef = useRef([]);
 
@@ -33,7 +35,7 @@ function GiftBox({ nextStep }) {
   // ==========================================
 
   const hearts = useMemo(() => {
-    return Array.from({ length: 75 }).map(
+    return Array.from({ length: 36 }).map(
       (_, index) => ({
         id: index,
 
@@ -299,12 +301,27 @@ function GiftBox({ nextStep }) {
   useEffect(() => {
     if (!isOpened) return;
 
+    videoTimerRef.current = setTimeout(() => {
+      if (!videoRef.current) return;
+
+      videoRef.current.play().catch((error) => {
+        console.log(
+          "Gift video could not play:",
+          error
+        );
+      });
+    }, 2400);
+
     nextTimerRef.current =
       setTimeout(() => {
         nextStep();
-      }, Math.max(6500, (videoDuration + 1) * 1000));
+      }, Math.max(8500, (videoDuration + 3.4) * 1000));
 
     return () => {
+      if (videoTimerRef.current) {
+        clearTimeout(videoTimerRef.current);
+      }
+
       if (nextTimerRef.current) {
         clearTimeout(
           nextTimerRef.current
@@ -333,6 +350,10 @@ function GiftBox({ nextStep }) {
         clearTimeout(
           nextTimerRef.current
         );
+      }
+
+      if (videoTimerRef.current) {
+        clearTimeout(videoTimerRef.current);
       }
 
       // Music fade
@@ -699,7 +720,7 @@ function GiftBox({ nextStep }) {
 
             <motion.video
               src={giftVideo}
-              autoPlay
+              ref={videoRef}
               playsInline
               controls
               preload="auto"
@@ -717,7 +738,7 @@ function GiftBox({ nextStep }) {
                 y: 0,
               }}
               transition={{
-                delay: 0.8,
+                delay: 2.4,
                 duration: 0.8,
                 ease: "easeOut",
               }}
