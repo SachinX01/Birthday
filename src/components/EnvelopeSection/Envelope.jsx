@@ -15,6 +15,9 @@ import closeEnvelope from "../../assets/close-envelop.webp";
 import openEnvelope from "../../assets/open-envelop.webp";
 
 function Envelope({ nextStep }) {
+  const [quizAnswer, setQuizAnswer] = useState("");
+  const [quizPassed, setQuizPassed] = useState(false);
+  const [quizError, setQuizError] = useState("");
   const [opening, setOpening] = useState(false);
   const [showOpenEnvelope, setShowOpenEnvelope] =
     useState(false);
@@ -24,6 +27,22 @@ function Envelope({ nextStep }) {
   const openTimerRef = useRef(null);
   const letterTimerRef = useRef(null);
   const fadeIntervalRef = useRef(null);
+
+  const checkQuizAnswer = (event) => {
+    event.preventDefault();
+
+    const normalizedAnswer = quizAnswer
+      .toLowerCase()
+      .replace(/[^a-z0-9]/g, "");
+
+    if (normalizedAnswer === "miniseashore") {
+      setQuizPassed(true);
+      setQuizError("");
+      return;
+    }
+
+    setQuizError("Not quite… think about our college days again 😄");
+  };
 
   // ==========================================
   // START SOFT PIANO
@@ -180,7 +199,80 @@ function Envelope({ nextStep }) {
           BEFORE LETTER OPENS
       ====================================== */}
 
-      {!showLetter && (
+      {!showLetter && !quizPassed && (
+        <motion.form
+          initial={{ opacity: 0, y: 20 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.7 }}
+          onSubmit={checkQuizAnswer}
+          className="
+            relative
+            z-10
+            w-full
+            max-w-md
+            rounded-3xl
+            border
+            border-[#b58b52]/40
+            bg-[#162438]/90
+            p-6
+            shadow-xl
+          "
+        >
+          <p className="mb-3 text-3xl">🤔</p>
+          <h1 className="mb-3 text-2xl font-semibold text-pink-600">
+            Letter dekhna hai toh pehle iska jawab do 😌
+          </h1>
+          <p className="mb-5 text-base leading-7 text-gray-600">
+            Where did we spend half of our college life?
+          </p>
+          <p className="mb-4 text-sm italic text-pink-400">
+            Hint: It starts with M…
+          </p>
+          <input
+            value={quizAnswer}
+            onChange={(event) => {
+              setQuizAnswer(event.target.value);
+              setQuizError("");
+            }}
+            placeholder="Type your answer..."
+            aria-label="Quiz answer"
+            autoComplete="off"
+            className="
+              mb-3
+              w-full
+              rounded-full
+              border
+              border-[#b58b52]/50
+              bg-[#0d1726]
+              px-5
+              py-3
+              text-center
+              text-white
+              outline-none
+              placeholder:text-gray-500
+              focus:border-[#d6ad68]
+            "
+          />
+          {quizError && (
+            <p className="mb-3 text-sm text-pink-400">{quizError}</p>
+          )}
+          <button
+            type="submit"
+            className="
+              rounded-full
+              bg-pink-500
+              px-6
+              py-2
+              font-semibold
+              text-white
+            "
+          >
+            Unlock the Letter 💌
+          </button>
+        </motion.form>
+      )}
+
+      {!showLetter && quizPassed && (
         <div
           className="
             relative
