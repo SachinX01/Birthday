@@ -1,5 +1,12 @@
-import { useEffect, useRef } from "react";
-import { motion } from "framer-motion";
+import {
+  useEffect,
+  useRef,
+  useState,
+} from "react";
+import {
+  AnimatePresence,
+  motion,
+} from "framer-motion";
 
 import teddy from "../../assets/birthday-teddy.webp";
 import togetherPhoto from "../../assets/photos/together.webp";
@@ -11,8 +18,36 @@ import Starfield from "./Starfield";
 import ReplayButton from "../Common/ReplayButton";
 
 function FinalCelebration() {
+  const [activeMemory, setActiveMemory] = useState(0);
   const musicRef = useRef(null);
   const fadeRef = useRef(null);
+  const memories = [
+    {
+      src: teddy,
+      alt: "Birthday Teddy",
+      className: "object-contain",
+    },
+    {
+      src: togetherPhoto,
+      alt: "Yash and Ashu together",
+      className: "object-cover",
+    },
+    {
+      src: togetherSittingPhoto,
+      alt: "Yash and Ashu sitting together",
+      className: "object-cover",
+    },
+  ];
+
+  useEffect(() => {
+    const memoryTimer = setInterval(() => {
+      setActiveMemory((current) => (
+        (current + 1) % memories.length
+      ));
+    }, 3500);
+
+    return () => clearInterval(memoryTimer);
+  }, [memories.length]);
 
   // ==========================================
   // HAPPY BIRTHDAY MUSIC
@@ -213,18 +248,45 @@ function FinalCelebration() {
               ease: "easeInOut",
             }}
           >
-            <img
-              src={teddy}
-              alt="Birthday Teddy"
-              className="
-                w-44
-                sm:w-52
-                md:w-60
-                lg:w-64
+            <AnimatePresence mode="wait">
+              <motion.img
+                key={memories[activeMemory].alt}
+                src={memories[activeMemory].src}
+                alt={memories[activeMemory].alt}
+                initial={{
+                  opacity: 0,
+                  scale: 0.92,
+                  x: 18,
+                }}
+                animate={{
+                  opacity: 1,
+                  scale: 1,
+                  x: 0,
+                }}
+                exit={{
+                  opacity: 0,
+                  scale: 0.92,
+                  x: -18,
+                }}
+                transition={{
+                  duration: 0.6,
+                  ease: "easeInOut",
+                }}
+                className={`
+                  h-56
+                  w-56
+                  sm:h-64
+                  sm:w-64
+                  md:h-72
+                  md:w-72
+                  lg:h-80
+                  lg:w-80
 
-                object-contain
-              "
-            />
+                  rounded-3xl
+                  ${memories[activeMemory].className}
+                `}
+              />
+            </AnimatePresence>
           </motion.div>
 
           {/* ==================================
@@ -285,65 +347,6 @@ function FinalCelebration() {
           >
             ❤️
           </motion.div>
-        </motion.div>
-
-        {/* ====================================
-            FINAL MEMORY PHOTOS
-        ==================================== */}
-
-        <motion.div
-          initial={{
-            opacity: 0,
-            y: 12,
-            scale: 0.9,
-          }}
-          animate={{
-            opacity: 1,
-            y: 0,
-            scale: 1,
-          }}
-          transition={{
-            duration: 0.7,
-            delay: 1,
-          }}
-          className="
-            mb-3
-            flex
-            items-center
-            justify-center
-            gap-3
-          "
-        >
-          <img
-            src={togetherPhoto}
-            alt="Yash and Ashu together"
-            className="
-              h-20
-              w-20
-              rounded-2xl
-              border-2
-              border-pink-100
-              object-cover
-              shadow-lg
-              sm:h-24
-              sm:w-24
-            "
-          />
-          <img
-            src={togetherSittingPhoto}
-            alt="Yash and Ashu sitting together"
-            className="
-              h-20
-              w-20
-              rounded-2xl
-              border-2
-              border-pink-100
-              object-cover
-              shadow-lg
-              sm:h-24
-              sm:w-24
-            "
-          />
         </motion.div>
 
         {/* ====================================
