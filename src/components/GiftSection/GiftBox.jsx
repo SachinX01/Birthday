@@ -9,9 +9,11 @@ import { AnimatePresence, motion } from "framer-motion";
 
 import giftClose from "../../assets/gift-close.webp";
 import giftOpen from "../../assets/gift-open.webp";
+import giftVideo from "../../assets/video/video.mp4";
 
 function GiftBox({ nextStep }) {
   const [isOpened, setIsOpened] = useState(false);
+  const [videoDuration, setVideoDuration] = useState(0);
 
   // ==========================================
   // AUDIO / TIMER REFS
@@ -300,7 +302,7 @@ function GiftBox({ nextStep }) {
     nextTimerRef.current =
       setTimeout(() => {
         nextStep();
-      }, 6500);
+      }, Math.max(6500, (videoDuration + 1) * 1000));
 
     return () => {
       if (nextTimerRef.current) {
@@ -309,7 +311,7 @@ function GiftBox({ nextStep }) {
         );
       }
     };
-  }, [isOpened, nextStep]);
+  }, [isOpened, nextStep, videoDuration]);
 
   // ==========================================
   // FINAL CLEANUP
@@ -688,6 +690,52 @@ function GiftBox({ nextStep }) {
                 select-none
 
                 drop-shadow-xl
+              "
+            />
+
+            {/* ==================================
+                PERSONAL VIDEO REVEAL
+            ================================== */}
+
+            <motion.video
+              src={giftVideo}
+              autoPlay
+              playsInline
+              controls
+              preload="auto"
+              onLoadedMetadata={(event) => {
+                setVideoDuration(event.currentTarget.duration);
+              }}
+              initial={{
+                opacity: 0,
+                scale: 0.92,
+                y: 20,
+              }}
+              animate={{
+                opacity: 1,
+                scale: 1,
+                y: 0,
+              }}
+              transition={{
+                delay: 0.8,
+                duration: 0.8,
+                ease: "easeOut",
+              }}
+              className="
+                relative
+                z-[25]
+
+                max-h-[58vh]
+                max-w-[88vw]
+                sm:max-w-[70vw]
+                md:max-w-[560px]
+
+                rounded-3xl
+                border
+                border-[#d6ad68]/70
+                bg-[#0d1726]
+                object-contain
+                shadow-2xl
               "
             />
 
