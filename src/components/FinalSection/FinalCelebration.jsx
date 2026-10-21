@@ -2,6 +2,8 @@ import { useEffect, useRef } from "react";
 import { motion } from "framer-motion";
 
 import teddy from "../../assets/birthday-teddy.webp";
+import togetherPhoto from "../../assets/photos/together.webp";
+import togetherSittingPhoto from "../../assets/photos/together-sitting.webp";
 import birthdayData from "../../data/birthdayData";
 
 import Confetti from "./Confetti";
@@ -283,6 +285,65 @@ function FinalCelebration() {
           >
             ❤️
           </motion.div>
+        </motion.div>
+
+        {/* ====================================
+            FINAL MEMORY PHOTOS
+        ==================================== */}
+
+        <motion.div
+          initial={{
+            opacity: 0,
+            y: 12,
+            scale: 0.9,
+          }}
+          animate={{
+            opacity: 1,
+            y: 0,
+            scale: 1,
+          }}
+          transition={{
+            duration: 0.7,
+            delay: 1,
+          }}
+          className="
+            mb-3
+            flex
+            items-center
+            justify-center
+            gap-3
+          "
+        >
+          <img
+            src={togetherPhoto}
+            alt="Yash and Ashu together"
+            className="
+              h-20
+              w-20
+              rounded-2xl
+              border-2
+              border-pink-100
+              object-cover
+              shadow-lg
+              sm:h-24
+              sm:w-24
+            "
+          />
+          <img
+            src={togetherSittingPhoto}
+            alt="Yash and Ashu sitting together"
+            className="
+              h-20
+              w-20
+              rounded-2xl
+              border-2
+              border-pink-100
+              object-cover
+              shadow-lg
+              sm:h-24
+              sm:w-24
+            "
+          />
         </motion.div>
 
         {/* ====================================
