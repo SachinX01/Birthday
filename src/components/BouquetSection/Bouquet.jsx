@@ -1,6 +1,6 @@
 import { motion } from "framer-motion";
 
-import bouquet from "../../assets/bouquet.webp";
+import bouquet from "../../assets/bouquet.png";
 import coupleLeft from "../../assets/couple-left.webp";
 import coupleRight from "../../assets/couple-right.webp";
 
